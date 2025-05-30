@@ -28,7 +28,8 @@ type EnvConfig struct {
 
 	BananalogDocID             string `env:"BANANALOG_DOC_ID,required"`
 	BananalogOverviewDataRange string `env:"BANANALOG_OVERVIEW_DATA_RANGE,required"`
-	BananalogEnabledOffset     int    `env:"BANANALOG_ENABLED_OFFSET,required"`
+	// Need to figure out how to do this with Env variables...eventually
+	// BananalogEnabledOffset     int    `env:"BANANALOG_ENABLED_OFFSET,required"`
 }
 
 func ParseEnv() (EnvConfig, error) {

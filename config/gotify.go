@@ -14,8 +14,7 @@ type GotifyClient struct {
 	url     string
 }
 
-func (
-	g *GotifyClient) Send(
+func (g *GotifyClient) Send(
 	ctx context.Context,
 	title string,
 	body string,
@@ -48,12 +47,10 @@ func (
 }
 
 func NewGotifyClient(
-	enabled bool,
-	host string,
-	appToken string,
+	cfg EnvConfig,
 ) *GotifyClient {
 	return &GotifyClient{
-		enabled: enabled,
-		url:     fmt.Sprintf("%s/message?token=%s", host, appToken),
+		enabled: cfg.GotifyEnabled,
+		url:     fmt.Sprintf("%s/message?token=%s", cfg.GotifyURL.String(), cfg.GotifyToken),
 	}
 }

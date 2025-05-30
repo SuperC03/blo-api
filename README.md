@@ -35,5 +35,3 @@
 #### Banana Log Values
 - `BANANALOG_DOC_ID`
 - `BANANALOG_OVERVIEW_DATA_RANGE`: Range for relavent data
-- `BANANALOG_ENABLED_OFFSET`: Cell offset for API Status
-- 

@@ -8,20 +8,20 @@ import (
 )
 
 func NewLogger(
-	isProd bool,
+	cfg EnvConfig,
 	gotify *GotifyClient,
 ) (*zap.Logger, error) {
-	var cfg zap.Config
-	if isProd {
-		cfg = zap.NewProductionConfig()
+	var logCfg zap.Config
+	if cfg.Production {
+		logCfg = zap.NewProductionConfig()
 	} else {
-		cfg = zap.NewDevelopmentConfig()
+		logCfg = zap.NewDevelopmentConfig()
 	}
 
-	cfg.EncoderConfig.EncodeLevel = zapcore.CapitalColorLevelEncoder
-	cfg.EncoderConfig.TimeKey = "timestamp"
-	cfg.EncoderConfig.EncodeTime = zapcore.ISO8601TimeEncoder
-	logger, err := cfg.Build()
+	logCfg.EncoderConfig.EncodeLevel = zapcore.CapitalColorLevelEncoder
+	logCfg.EncoderConfig.TimeKey = "timestamp"
+	logCfg.EncoderConfig.EncodeTime = zapcore.ISO8601TimeEncoder
+	logger, err := logCfg.Build()
 	if err != nil {
 		return nil, err
 	}
