@@ -11,7 +11,7 @@ type EnvConfig struct {
 	Port       int    `env:"PORT" envDefault:"8080"`
 	Production bool   `env:"PRODUCTION" envDefault:"0"`
 
-	PostgresUser     string `env:"POSTGRES_USERNAME,required"`
+	PostgresUser     string `env:"POSTGRES_USER,required"`
 	PostgresPassword string `env:"POSTGRES_PASSWORD,required"`
 	PostgresName     string `env:"POSTGRES_NAME,required"`
 	PostgresHost     string `env:"POSTGRES_HOST,required"`
