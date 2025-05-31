@@ -34,7 +34,6 @@ func main() {
 		log.Fatal(err.Error())
 	}
 	connString := config.CreateConnectionString(&cfg)
-	fmt.Println(connString)
 
 	db, err := goose.OpenDBWithDriver("pgx", connString)
 	if err != nil {

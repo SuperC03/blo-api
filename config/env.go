@@ -9,7 +9,7 @@ import (
 type EnvConfig struct {
 	Hostname   string `env:"HOSTNAME" envDefault:"localhost"`
 	Port       int    `env:"PORT" envDefault:"8080"`
-	Production bool   `env:"PRODUCTION" envDefault:"0"`
+	Production bool   `env:"PRODUCTION" envDefault:"1"`
 
 	PostgresUser     string `env:"POSTGRES_USER,required"`
 	PostgresPassword string `env:"POSTGRES_PASSWORD,required"`
