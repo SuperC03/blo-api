@@ -29,7 +29,8 @@ func NewLogger(
 	return logger.WithOptions(zap.Hooks(func(e zapcore.Entry) error {
 		if e.Level >= zap.ErrorLevel {
 			// In theory should a goroutine, but if we're here, something's already messed up :(
-			gotify.Send(context.Background(), e.Level.String(), e.Message)
+			err := gotify.Send(context.Background(), e.Level.String(), e.Message)
+			println(err.Error())
 		}
 		return nil
 	})), nil

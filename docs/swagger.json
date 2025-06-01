@@ -1,9 +1,66 @@
 {
     "swagger": "2.0",
     "info": {
+        "description": "Server for accessing \"public\" data and internal reports",
         "title": "Banana Lounge API",
-        "contact": {},
+        "contact": {
+            "name": "API Support",
+            "email": "banana@colclark.net"
+        },
         "version": "1.0"
     },
-    "paths": {}
+    "basePath": "/",
+    "paths": {
+        "/health": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "meta"
+                ],
+                "summary": "Indicates server health",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/routers.GenericJsonDto"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/routers.GenericJsonDto"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "routers.GenericJsonDto": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "string",
+                    "example": "okie dokie"
+                },
+                "message": {
+                    "type": "string",
+                    "example": "internal server error"
+                },
+                "status": {
+                    "type": "string",
+                    "example": "success"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "type": "apiKey",
+            "name": "X-API-KEY",
+            "in": "header"
+        }
+    }
 }

@@ -9,6 +9,7 @@ import (
 type EnvConfig struct {
 	Hostname   string `env:"HOSTNAME" envDefault:"localhost"`
 	Port       int    `env:"PORT" envDefault:"8080"`
+	PublicURL  string `env:"PUBLIC_URL" envDefault:"localhost:8080"`
 	Production bool   `env:"PRODUCTION" envDefault:"1"`
 
 	PostgresUser     string `env:"POSTGRES_USER,required"`
@@ -19,7 +20,7 @@ type EnvConfig struct {
 
 	GotifyEnabled bool    `env:"GOTIFY_ENABLED" envDefault:"0"`
 	GotifyURL     url.URL `env:"GOTIFY_URL"`
-	GotifyToken   string  `env:"GotifyToken"`
+	GotifyToken   string  `env:"GOTIFY_TOKEN"`
 
 	GoogleKeyPath string `env:"GOOGLE_KEY_PATH,required"`
 

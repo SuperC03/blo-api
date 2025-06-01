@@ -10,6 +10,7 @@
 #### Server Params
 - `HOSTNAME`
 - `PORT`
+- `PUBLIC_URL`
 - `IS_PRODUCTION`: 1 if in production environment, 0 otherwise
 
 #### PostgreSQL Database

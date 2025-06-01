@@ -2,7 +2,6 @@ package config
 
 import (
 	"context"
-	"embed"
 	"fmt"
 
 	"github.com/jackc/pgx/v5/pgxpool"
@@ -23,10 +22,9 @@ func CreateConnectionString(
 
 func NewDBConnection(
 	ctx context.Context,
-	cfg *EnvConfig,
-	embedMigrations embed.FS,
+	cfg EnvConfig,
 ) (*pgxpool.Pool, error) {
-	connString := CreateConnectionString(cfg)
+	connString := CreateConnectionString(&cfg)
 
 	db, err := pgxpool.New(ctx, connString)
 	if err != nil {

@@ -1,6 +1,44 @@
+basePath: /
+definitions:
+  routers.GenericJsonDto:
+    properties:
+      data:
+        example: okie dokie
+        type: string
+      message:
+        example: internal server error
+        type: string
+      status:
+        example: success
+        type: string
+    type: object
 info:
-  contact: {}
+  contact:
+    email: banana@colclark.net
+    name: API Support
+  description: Server for accessing "public" data and internal reports
   title: Banana Lounge API
   version: "1.0"
-paths: {}
+paths:
+  /health:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/routers.GenericJsonDto'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/routers.GenericJsonDto'
+      summary: Indicates server health
+      tags:
+      - meta
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: X-API-KEY
+    type: apiKey
 swagger: "2.0"
